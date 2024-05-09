@@ -23,13 +23,16 @@ body {
 }
 
 .contain-header {
+  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem 4rem;
   position: relative;
 
-  :is(ul, a) {
+  & ul,
+  & a {
     list-style-type: none;
     text-decoration: none;
   }
@@ -204,9 +207,8 @@ body {
     & input:checked~.links {
       padding: 0 10rem 0 0;
     }
-
-    & input:checked~.section-home-main {
-      display: none;
+    & input:checked ~ .contain-header {
+ 
     }
   }
 }
@@ -227,28 +229,26 @@ body {
 
 .section-home-main {
   position: absolute;
-  background: transparent;
-  background-image: url("../assets/background-header.png");
-  background-size: cover;
-  object-fit: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
   top: 0rem;
-  z-index: -1;
+  left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
- 
+
+  background: url("../assets/background-header.png") no-repeat center center;
+  background-size: cover;
+  object-fit: contain;
+
+  width: 100vw;
+  height: 100vh;
+  
+  z-index: -1;
 
   & img:nth-child(1) {
     position: absolute;
     top: 10rem;
   }
-
-  display: flex;
-  flex-direction: column;
 
   & h1 {
     position: absolute;
